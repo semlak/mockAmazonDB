@@ -49,8 +49,8 @@ CREATE TABLE user (
 create table user_order (
 	id integer(11) NOT NULL auto_increment,
 	user_id integer(11) NOT NULL,
-	PRIMARY KEY (id)
-	-- foreign key (user_id) references user(id) on delete cascade
+	PRIMARY KEY (id),
+	foreign key (user_id) references user(id)
 );
 
 
@@ -58,12 +58,12 @@ CREATE TABLE line_item (
 	id  integer(11) NOT NULL AUTO_INCREMENT,
 	item_id integer(11) NOT NULL,
 	order_id integer(11) not null,
-	price decimal(13,4) NOT NULL,
+	unit_price decimal(13,4) NOT NULL,
 	quantity integer(11) NOT NULL,
-	PRIMARY KEY (id)
-	-- foreign key (item_id) references products(item_id) on delete cascade,
+	PRIMARY KEY (id),
+	foreign key (item_id) references products(item_id) on delete cascade,
 	-- foreign key (item_id) references products(item_id),
-	-- foreign key (order_id) references user_order(id) on delete cascade
+	foreign key (order_id) references user_order(id) on delete cascade
 );
 
 -- include quantity, price, order_id
@@ -120,5 +120,13 @@ BEGIN
 END; $$
 
 
+
+create trigger newLineItem_added after insert on line_item for each ROW
+begin
+	declare itemID,quantity INT;
+	set itemID = NEW.item_id;
+	set quantity = NEW.quantity;
+	update products set stock_quantity = stock_quantity - quantity where itemID = item_ID;
+END; $$
 
 DELIMITER ;

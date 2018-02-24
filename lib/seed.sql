@@ -4,8 +4,8 @@ SET sql_mode = 'TRADITIONAL';
 
 use bamazon;
 
-truncate products;
-truncate user;
+-- truncate products;
+-- truncate user;
 -- truncate line_item;
 -- truncate user_order;
 -- insert into products (product_name, department_name, price, stock_quantity) values \
@@ -15,7 +15,7 @@ insert into products (product_name, department_name, price, stock_quantity) valu
 	("Logitech M325 Wireless Mouse for Web Scrolling - Black", "Computers", 14.70, 40);
 
 insert into products (product_name, department_name, price, stock_quantity) values \
-	("Hotel California", "CDs &  Vinyl", 9.98, 67);
+	("Hotel California", "CDs & Vinyl", 9.98, 67);
 
 insert into products (product_name, department_name, price, stock_quantity) values \
 	("ASUS Zenbook Pro UX550VE 15.6 inch Ultra Book", "Computers", 1699.00, 3);
@@ -27,7 +27,7 @@ insert into products (product_name, department_name, price, stock_quantity) valu
 	("Wireless Mini Mouse M187", "Computers", 8.99, 73);
 
 insert into products (product_name, department_name, price, stock_quantity) values \
-	("Journey: Greatest Hits", "CDs &  Vinyl", 8.98, 104);
+	("Journey: Greatest Hits", "CDs & Vinyl", 8.98, 104);
 
 insert into products (product_name, department_name, price, stock_quantity) values \
 	("Fargo: Special Edition", "DVDs", 17.99, 87);
