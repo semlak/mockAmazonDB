@@ -25,7 +25,10 @@
   },
   "homepage": "https://github.com/semlak/mockAmazonDB#readme",
   "dependencies": {
+    "chalk": "^2.3.1",
+    "clear": "0.0.1",
     "cli-table": "^0.3.1",
+    "dotenv": "^4.0.0",
     "inquirer": "^5.1.0",
     "json-stringify": "^1.0.0",
     "mysql": "^2.15.0"
